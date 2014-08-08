@@ -3,19 +3,19 @@
     <h2><%= _.capitalize(pluralize(name)) %></h2>
 
     <script type = "text/ng-template" id="<%= name %>-save.html">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="panel panel-info">
+            <div class="">
                 <form name="form" role="form" novalidate
                       class="ng-scope ng-invalid ng-invalid-required ng-dirty"
                       ng-submit="ok()">
 
-                    <div class="modal-header">
+                    <div class="panel-header">
                         <button type="button" class="close"
                                 ng-click="cancel()">&times;</button>
-                        <h4 class="modal-title" id="my<%= _.capitalize(name) %>Label">Create or edit a <%= _.capitalize(name) %></h4>
+                        <h4 class="panel-title" id="my<%= _.capitalize(name) %>Label">Create or edit a <%= _.capitalize(name) %></h4>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
+                    <div class="panel-body">
+                        <div class="form-group hidden">
                             <label>ID</label>
                             <input type="text" class="form-control" name="id"
                                    ng-model="<%= name %>.id" readonly>
@@ -56,7 +56,7 @@
                         <% }); %>
 
                     </div>
-                    <div class="modal-footer">
+                    <div class="panel-footer">
                         <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
                         </button>
                         <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
