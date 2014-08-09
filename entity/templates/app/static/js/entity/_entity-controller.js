@@ -77,6 +77,13 @@ var <%= _.capitalize(name) %>SaveController =
       <% if (attr.dateConstraint === 'Future') { %>minDate: 1<% } %>
     };<% }}); %>
 
+    <% _.each(attrs, function (attr) { if (attr.attrType === 'Date') { %>
+    $scope.<%= attr.attrName %>DateOptions = {
+      dateTimeFormat: 'yy-mm-dd HH:MM:SS',
+      <% if (attr.dateConstraint === 'Past') { %>maxDate: -1<% } %>
+      <% if (attr.dateConstraint === 'Future') { %>minDate: 1<% } %>
+    };<% }}); %>
+
     $scope.ok = function () {
       $modalInstance.close($scope.<%= name %>);
     };

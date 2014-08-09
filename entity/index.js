@@ -43,7 +43,7 @@ EntityGenerator.prototype.askFor = function askFor() {
     type: 'list',
     name: 'attrType',
     message: 'What is the type of the attribute?',
-    choices: ['String', 'Integer', 'Float', 'Boolean', 'Date', 'Enum'],
+    choices: ['String', 'Integer', 'Float', 'Boolean', 'Date', 'Enum', 'DateTime'],
     default: 'String'
   },
   {
@@ -95,7 +95,7 @@ EntityGenerator.prototype.askFor = function askFor() {
     }
   },
   {
-    when: function (props) { return (/Date/).test(props.attrType); },
+    when: function (props) { return (/Date|DateTime/).test(props.attrType); },
     type: 'list',
     name: 'dateConstraint',
     message: 'Constrain the date as follows:',
